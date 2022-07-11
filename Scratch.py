@@ -13,11 +13,11 @@ path = 'C:\\Networks\MAGAV\Pictures'
 for meme in only_memes:
 
         image_url = meme['url']
-        filename = image_url.split("/")[-1]
-        filename.replace('?',' ')
+        
         r = requests.get(image_url, stream = True)
         r.raw.decodce_content = True
-        with open(os.path.join(path,filename), 'wb') as f:      
-            shutil.copyfileobj(r.raw, f)
-
+        temp = filename.replace('?', ' ')
+        meme['name'] = temp
+        with open(os.path.join(path, temp), 'wb') as f:
+                shutil.copyfileobj(r.raw, f)
             
