@@ -8,6 +8,7 @@ print(dict)
 
 only_memes = dict['data']['memes']
 print (only_memes)
+path = 'C:\\Networks\MAGAV\Pictures'
 
 for meme in only_memes:
 
@@ -16,7 +17,7 @@ for meme in only_memes:
         filename.replace('?',' ')
         r = requests.get(image_url, stream = True)
         r.raw.decodce_content = True
-        with open(filename, 'wb') as f:
+        with open(os.path.join(path,filename), 'wb') as f:      
             shutil.copyfileobj(r.raw, f)
 
             
