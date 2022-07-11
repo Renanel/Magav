@@ -13,7 +13,7 @@ for meme in only_memes:
 
         image_url = meme['url']
         filename = image_url.split("/")[-1]
-        # למה זה עושה בעיה כשיש סימן שאלה בשם? filename = meme['name']
+        filename.replace('?',' ')
         r = requests.get(image_url, stream = True)
         r.raw.decodce_content = True
         with open(filename, 'wb') as f:
